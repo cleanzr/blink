@@ -48,7 +48,7 @@ sd(estPopSize)
 
 ## ----show="hold", fig.cap="The red line is the ground truth (450), which we find to be very close to posterior mean of 445."----
 
-temp <- unzip("/Users/beka/work_on/ebLink/inst/extdata/sampleLinkage2.txt.zip")
+temp <- unzip("../inst/extdata/sampleLinkage2.txt.zip")
 
 estLink <- as.matrix(read.table(temp,header=TRUE))
 dim(estLink)
