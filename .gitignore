@@ -1,0 +1,9 @@
+.txt.gz
+.txt
+.gz
+.md
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.DS_store

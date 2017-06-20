@@ -1,0 +1,19 @@
+Package: bLink
+Type: Package
+Title: Record Linkage Package for Empirically Motivated Priors
+Version: 1.0.0
+Authors@R: person("Rebecca", "Steorts", email = "beka@stat.duke.edu",
+  role = c("aut", "cre"))
+Depends: R (>= 3.2.4)
+Imports:
+	stats,
+	utils,
+	plyr
+Suggests:
+	knitr,
+	RecordLinkage
+VignetteBuilder: knitr
+Description: An implementation of the model in Steorts (2015), which performs Bayesian entity resolution for categorical and text data, for any distance function defined by the user. In addition, the precision and recall are in the package to allow one to compare to any other comparable method such as logistic regression, Bayesian Adaptive Regression Trees, or random forests. The experiments are reproducible and illustrated using a simple vignette. 
+License: GPL-3
+LazyData: TRUE
+RoxygenNote: 5.0.1.9000
