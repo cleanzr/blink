@@ -1,13 +1,13 @@
 # This is the main Gibbs sampler in Steorts (2015), Bayesian Analysis.
 #If you use this code, please cite Steorts (2015), "Entity Resolution with Emprically Motivated Priors", Bayesian Analysis, (10),4:849-975.
 
-#bLink Copyright 2015, 2016 Rebecca C. Steorts (beka@stat.duke.edu)
+#ebLink Copyright 2015, 2016 Rebecca C. Steorts (beka@stat.duke.edu)
 
-#bLink is free software: you can redistribute it and/or modify it
+#ebLink is free software: you can redistribute it and/or modify it
 #under the terms of the Creative Commons license, either version 3 of the license,
 #or (at your option) any later version.
 
-#bLink is distributed in the hope it will be useful, but without ANY WARRANTY; without
+#ebLink is distributed in the hope it will be useful, but without ANY WARRANTY; without
 #even the implied warranty of merchantability or fitness for a particular purpose.
 #Specifically, you may share the software in any medium or format and you may adapt the software.
 #Credit must be given when either of these are given to indicate if and what changes were made.
