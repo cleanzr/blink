@@ -21,6 +21,7 @@
 #' @import utils
 #' @import plyr
 #' @import stringdist
+#' @import RecordLinkage
 #' @param file.num The number of the file
 #' @param X.s A vector of string variables
 #' @param X.c A vector of categorical variables
@@ -34,7 +35,7 @@
 #' @export
 
 #' @examples
-#' data(RLdata500)
+#' RLdata500<- RLdata500[-c(2,4)]
 #' outer_jarowinkler <- function(string1,string2) { outer(string1, string2, jarowinkler) }
 #' d<- outer_jarowinkler
 #' Record data for categorical fields

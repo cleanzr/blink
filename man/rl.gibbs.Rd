@@ -33,7 +33,7 @@ Returns the estimated linkage structure via Gibbs sampling
 Gibbs sampler for empirically motivated Bayesian record linkage
 }
 \examples{
-data(RLdata500)
+RLdata500<- RLdata500[-c(2,4)]
 outer_jarowinkler <- function(string1,string2) { outer(string1, string2, jarowinkler) }
 d<- outer_jarowinkler
 Record data for categorical fields
