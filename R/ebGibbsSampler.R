@@ -20,6 +20,7 @@
 #' @import stats
 #' @import utils
 #' @import plyr
+#' @import stringdist
 #' @param file.num The number of the file
 #' @param X.s A vector of string variables
 #' @param X.c A vector of categorical variables
@@ -31,6 +32,25 @@
 #' @param M The true value of the population size
 #' @return Returns the estimated linkage structure via Gibbs sampling
 #' @export
+
+#' @examples
+#' data(RLdata500)
+#' outer_jarowinkler <- function(string1,string2) { outer(string1, string2, jarowinkler) }
+#' d<- outer_jarowinkler
+#' Record data for categorical fields
+#' Note 1: The data needs to be laid out with each row representing
+#' a record and each column representing a field.
+#' Note 2: The different files need to be "stacked" on top of each other.
+#' X.c <- RLdata500[c("by","bm","bd")]
+#' X.c <- as.matrix(RLdata500[,"bd"],ncol=1)
+#' p.c <- ncol(X.c)
+#' X.s <- as.matrix(RLdata500[-c(2,4,7)])
+#' p.s <- ncol(X.s)
+#' system.time(lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d, M=500))
+
+
+#' rl.gibbs(file.num=rep(c(1,2,3),c(200,150,150)),X.c=as.matrix(rep(2,500)),X.s = matrix(1:12, 500,3), num.gs=2,a=.01,b=100,c=1,d=outer_jarowinkler, M=500)
+
 rl.gibbs <- function(file.num=file.num,X.s=X.s,X.c=X.c,num.gs=num.gs,a=a,b=b,c=c,d=d,M=M){
 
 
