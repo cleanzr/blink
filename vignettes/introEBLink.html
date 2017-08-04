@@ -12,7 +12,7 @@
 
 <meta name="author" content="Rebecca C. Steorts" />
 
-<meta name="date" content="2017-06-20" />
+<meta name="date" content="2017-08-04" />
 
 <title>Introduction to blink Package</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to blink Package</h1>
 <h4 class="author"><em>Rebecca C. Steorts</em></h4>
-<h4 class="date"><em>2017-06-20</em></h4>
+<h4 class="date"><em>2017-08-04</em></h4>
 
 
 
@@ -90,7 +90,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The RLdata500 data consists of 500 records with 10 percent duplication. Thus, there are 450 unique individuals. There is full information on each record containing first name, last name, and full date of birth.</p>
 <p>We first load the Record Linkgae package and load the RLdata500 data set. We also, provide the first few lines of the data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RecordLinkage)
-<span class="kw">data</span>(<span class="st">&quot;RLdata500&quot;</span>)
+<span class="kw">data</span>(RLdata500)
 <span class="kw">head</span>(RLdata500)</code></pre></div>
 <pre><code>##   fname_c1 fname_c2 lname_c1 lname_c2   by bm bd
 ## 1  CARSTEN     &lt;NA&gt;    MEIER     &lt;NA&gt; 1949  7 22

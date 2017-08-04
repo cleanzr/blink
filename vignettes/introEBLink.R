@@ -1,6 +1,6 @@
 ## ---- echo=TRUE, message=FALSE, knitr::opts_chunk$set(cache=TRUE)--------
 library(RecordLinkage)
-data("RLdata500")
+data(RLdata500)
 head(RLdata500)
 
 ## ------------------------------------------------------------------------

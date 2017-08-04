@@ -35,31 +35,24 @@
 #' @export
 
 #' @examples
-#' first.names <- c("CARSTEN", "GERD")
-#' last.names <- c("MEIER", "BAUER")
-#' by <- c(1949,1930)
-#' bm <- c(7,7)
-#' bd <- c(22,27)
+#' Looking at a very simple example that we illustrate
+#' how one loads the settings of the method and run
+#' the Gibbs sampler. 
 
-#' dat <- data.frame(cbind(first.names,last.names,by,bm,bd), ncol=5)
-#'  head(dat)
-#' outer_jarowinkler <- function(string1,string2) { outer(string1, string2, jarowinkler) }
-#' d<- outer_jarowinkler
-#' Record data for categorical fields
-#' Note 1: The data needs to be laid out with each row representing
-#' a record and each column representing a field.
-#' Note 2: The different files need to be "stacked" on top of each other.
+#' data(RLdata500)
 #' X.c <- RLdata500[c("by","bm","bd")]
 #' X.c <- as.matrix(RLdata500[,"bd"],ncol=1)
 #' p.c <- ncol(X.c)
 #' X.s <- as.matrix(RLdata500[-c(2,4,7)])
 #' p.s <- ncol(X.s)
-#' system.time(lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d=d, M=500))
+#' file.num <- rep(c(1,2,3),c(200,150,150))
+#' Let's look at the edit distance function 
+#' d <- function(string1,string2){adist(string1,string2)}
+#' system.time(lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d, M=500))
 
 
-#' rl.gibbs(file.num=rep(c(1,2,3),c(200,150,150)),X.c=as.matrix(rep(2,500)),X.s = matrix(1:12, 500,3), num.gs=2,a=.01,b=100,c=1,d=outer_jarowinkler, M=500)
-
-rl.gibbs <- function(file.num=file.num,X.s=X.s,X.c=X.c,num.gs=num.gs,a=a,b=b,c=c,d=d,M=M){
+rl.gibbs <- function(file.num=file.num,X.s=X.s,X.c=X.c,num.gs=num.gs,a=a,b=b,c=c,d=d,M=M)
+{
 
 
 	# Get dimensions
