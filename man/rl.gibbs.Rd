@@ -33,7 +33,13 @@ Returns the estimated linkage structure via Gibbs sampling
 Gibbs sampler for empirically motivated Bayesian record linkage
 }
 \examples{
-RLdata500<- RLdata500[-c(2,4)]
+first.names <- c("CARSTEN", "GERD")
+last.names <- c("MEIER", "BAUER")
+by <- c(1949,1930)
+bm <- c(7,7)
+bd <- c(22,27)
+dat <- data.frame(cbind(first.names,last.names,by,bm,bd), ncol=5)
+ head(dat)
 outer_jarowinkler <- function(string1,string2) { outer(string1, string2, jarowinkler) }
 d<- outer_jarowinkler
 Record data for categorical fields
@@ -45,7 +51,7 @@ X.c <- as.matrix(RLdata500[,"bd"],ncol=1)
 p.c <- ncol(X.c)
 X.s <- as.matrix(RLdata500[-c(2,4,7)])
 p.s <- ncol(X.s)
-system.time(lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d, M=500))
+system.time(lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d=d, M=500))
 rl.gibbs(file.num=rep(c(1,2,3),c(200,150,150)),X.c=as.matrix(rep(2,500)),X.s = matrix(1:12, 500,3), num.gs=2,a=.01,b=100,c=1,d=outer_jarowinkler, M=500)
 }
 

@@ -32,7 +32,7 @@ We first load the Record Linkgae package and load the RLdata500 data set. We als
 
 ```{r, echo=TRUE, message=FALSE, knitr::opts_chunk$set(cache=TRUE)}
 library(RecordLinkage)
-data("RLdata500")
+data(RLdata500)
 head(RLdata500)
 ```
 
