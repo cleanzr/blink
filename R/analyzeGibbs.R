@@ -4,12 +4,18 @@
 #' @param record A vector of records
 #' @return Computes a records MMS
 #' @export
+
+#' @examples
+#' lambda <- matrix(c(1,1,2,2,3,3),ncol=3)
+#' record <- c(1,10,3,5,20,2)
+#' mms(lambda=lambda, record=record)
+
 mms <- function(lambda, record){
 	lambda. <- drop(lambda)
 	return(which(lambda.==lambda.[record]))
 }
 
-#' Function to compute a record's MPMMS based on a Gibbs sample. Note: It returns a list of the MPMMS ($mpmms) and its probability ($prob)
+#' Function to compute a record's MPMMS based on a Gibbs sampler. Note: It returns a list of the MPMMS ($mpmms) and its probability ($prob)
 #'
 #' @import stats
 #' @import utils
@@ -17,6 +23,12 @@ mms <- function(lambda, record){
 #' @param record A specific record
 #' @return Returns a list of the MPMSS and the associated probabilities.
 #' @export
+
+#' @examples
+#' lam.gs <- matrix(c(1,1,2,2,3,3,5,6,4,3,4,5,3,2,4,1,2,3,4,2),ncol=20,  nrow=4)
+#' record <- c(1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3)
+#' mpmms(lam.gs=lam.gs, record=record)
+
 mpmms <- function(lam.gs,record){
 	G <- dim(lam.gs)[1]
 	mms.out <- NULL
@@ -58,7 +70,12 @@ mpmms <- function(lam.gs,record){
 #' @param show.as.multiple Always return MPMMSs that have more than one member
 #' @return Returns the shared MPMMS
 #' @export
-links <- function(lam.gs = 10,include.singles=FALSE,show.as.multiple=FALSE){
+
+#' @examples
+#' lam.gs <- matrix(c(1,1,2,2,3,3,5,6,4,3,4,5,3,2,4,1,2,3,4,2),ncol=20,  nrow=4)
+#' links(lam.gs)
+
+links <- function(lam.gs =lam.gs ,include.singles=FALSE,show.as.multiple=FALSE){
 	N <- dim(lam.gs)[2]
 	links.out <- list()
 	for(r in 1:N){
@@ -79,8 +96,6 @@ links <- function(lam.gs = 10,include.singles=FALSE,show.as.multiple=FALSE){
 }
 
 
-
-
 #' Function to take links list that may contain 3-way, 4-way, etc.
 #' and reduce it to pairwise only (e.g., a 3-way link 12-45-78 is
 #' changed to 2-way links: 12-45, 12-78, 45-78
@@ -90,6 +105,11 @@ links <- function(lam.gs = 10,include.singles=FALSE,show.as.multiple=FALSE){
 #' @param .links A vector of records that are linked to one another
 #' @return Returns two ways links of records
 #' @export
+
+#' lam.gs <- matrix(c(1,1,2,2,3,3,5,6,4,3,4,5,3,2,4,1,2,3,4,2),ncol=20, nrow=4)
+#' est.links <- links(lam.gs)
+#' est.links.pair <- pairwise(est.links)
+
 pairwise <- function(.links){
 	 links.out <- list()
 	# more efficient to use combn

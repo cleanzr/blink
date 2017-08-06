@@ -31,24 +31,18 @@
 #' @param c Positive constant
 #' @param d Any distance metric measuring the latent and observed string
 #' @param M The true value of the population size
-#' @return Returns the estimated linkage structure via Gibbs sampling
+#' @return lambda.out The estimated linkage structure via Gibbs sampling
 #' @export
 
 #' @examples
-#' Looking at a very simple example that we illustrate
-#' how one loads the settings of the method and run
-#' the Gibbs sampler. 
-
 #' data(RLdata500)
-#' X.c <- RLdata500[c("by","bm","bd")]
-#' X.c <- as.matrix(RLdata500[,"bd"],ncol=1)
+#' X.c <- as.matrix(RLdata500[c("by","bm","bd")])[1:3,]
 #' p.c <- ncol(X.c)
-#' X.s <- as.matrix(RLdata500[-c(2,4,7)])
+#' X.s <- as.matrix(RLdata500[c(1,3)])[1:3,]
 #' p.s <- ncol(X.s)
-#' file.num <- rep(c(1,2,3),c(200,150,150))
-#' Let's look at the edit distance function 
+#' file.num <- rep(c(1,1,1),c(1,1,1))
 #' d <- function(string1,string2){adist(string1,string2)}
-#' system.time(lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d, M=500))
+#' lam.gs <- rl.gibbs(file.num,X.s,X.c,num.gs=2,a=.01,b=100,c=1,d, M=3)
 
 
 rl.gibbs <- function(file.num=file.num,X.s=X.s,X.c=X.c,num.gs=num.gs,a=a,b=b,c=c,d=d,M=M)
@@ -465,7 +459,7 @@ calc_q <- function(jp, X.c.ij, X.s.ij, z.s.ij, z.c.ij) {
 		print("     Updating lambda history")
 		lambda.out[gs.iter,] <- lambda
 		write.table(matrix(lambda,nrow=1),outputfilename,append=TRUE,
-			row.names=FALSE,col.names=FALSE)
+		row.names=FALSE,col.names=FALSE)
 		flush.console()
 	}
 
