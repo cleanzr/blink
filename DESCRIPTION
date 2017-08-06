@@ -1,4 +1,4 @@
-Package: bLink
+Package: blink
 Type: Package
 Title: Record Linkage for Empirically Motivated Priors
 Version: 0.1.0
@@ -12,8 +12,7 @@ Imports:
 	stats,
 	utils
 Suggests:
-	knitr,
-	babynames
+	knitr
 VignetteBuilder: knitr
 Description: An implementation of the model in Steorts (2015) <DOI:10.1214/15-BA965SI>, which performs Bayesian entity resolution for categorical and text data, for any distance function defined by the user. In addition, the precision and recall are in the package to allow one to compare to any other comparable method such as logistic regression, Bayesian additive regression trees (BART), or random forests. The experiments are reproducible and illustrated using a simple vignette. 
 License: GPL-3
