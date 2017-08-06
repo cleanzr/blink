@@ -25,3 +25,7 @@ and missing links
 (correct = estimated and true, incorrect = estimated but not true,
 missing = true but not estimated)
 }
+\examples{
+true.links <- links(matrix(id,nrow=1))
+links.compare(est.links.pair, true.links=id)
+}

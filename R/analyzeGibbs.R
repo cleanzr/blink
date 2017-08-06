@@ -106,6 +106,8 @@ links <- function(lam.gs =lam.gs ,include.singles=FALSE,show.as.multiple=FALSE){
 #' @return Returns two ways links of records
 #' @export
 
+#' @examples
+#' id <- c(1,2,3,4,5,1,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
 #' lam.gs <- matrix(c(1,1,2,2,3,3,5,6,4,3,4,5,3,2,4,1,2,3,4,2),ncol=20, nrow=4)
 #' est.links <- links(lam.gs)
 #' est.links.pair <- pairwise(est.links)
@@ -136,6 +138,11 @@ pairwise <- function(.links){
 #' @param counts.only State whether or not counts only is true or false
 #' @return Gives a vector of the estimated and true links, estimated but not true links, and the true but not estimated links
 #' @export
+
+#' @examples
+#' true.links <- links(matrix(id,nrow=1))
+#' links.compare(est.links.pair, true.links=id)
+
 links.compare <- function(est.links.pair,true.links.pair,counts.only=TRUE){
 	correct.out <- list()
 	incorrect.out <- list()
@@ -180,10 +187,13 @@ links.compare <- function(est.links.pair,true.links.pair,counts.only=TRUE){
 #' @param identity_vector A vector of the unique ids
 #' @return Whether or not two records which are estimated to be linked have the same unique ids
 #' @export
+
+#' @examples
+#' rec1 <- 6
+#' rec2 <- 1
+#' check_IDs(recpair=c(rec1,rec2),identity_vector=id)
 check_IDs <- function(recpair, identity_vector) {
 	rec1 <- recpair[1]
 	rec2 <- recpair[2]
 	return(identity_vector[rec1] == identity_vector[rec2])
 }
-
-

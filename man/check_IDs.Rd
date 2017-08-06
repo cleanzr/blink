@@ -17,3 +17,8 @@ Whether or not two records which are estimated to be linked have the same unique
 \description{
 Check whether 2 records which are estimated to be linked have the same IDs
 }
+\examples{
+rec1 <- 6
+rec2 <- 1
+check_IDs(recpair=c(rec1,rec2),identity_vector=id)
+}
