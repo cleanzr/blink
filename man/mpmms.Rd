@@ -2,7 +2,7 @@
 % Please edit documentation in R/analyzeGibbs.R
 \name{mpmms}
 \alias{mpmms}
-\title{Function to compute a record's MPMMS based on a Gibbs sample. Note: It returns a list of the MPMMS ($mpmms) and its probability ($prob)}
+\title{Function to compute a record's MPMMS based on a Gibbs sampler. Note: It returns a list of the MPMMS ($mpmms) and its probability ($prob)}
 \usage{
 mpmms(lam.gs, record)
 }
@@ -15,6 +15,10 @@ mpmms(lam.gs, record)
 Returns a list of the MPMSS and the associated probabilities.
 }
 \description{
-Function to compute a record's MPMMS based on a Gibbs sample. Note: It returns a list of the MPMMS ($mpmms) and its probability ($prob)
+Function to compute a record's MPMMS based on a Gibbs sampler. Note: It returns a list of the MPMMS ($mpmms) and its probability ($prob)
 }
-
+\examples{
+lambda <- matrix(c(1,1,2,2,3,3),ncol=3)
+record <- c(1,3,1,3,1,3)
+mpmms(lam.gs=lambda, record=record)
+}

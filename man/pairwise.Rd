@@ -19,4 +19,3 @@ Function to take links list that may contain 3-way, 4-way, etc.
 and reduce it to pairwise only (e.g., a 3-way link 12-45-78 is
 changed to 2-way links: 12-45, 12-78, 45-78
 }
-

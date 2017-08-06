@@ -17,4 +17,3 @@ Whether or not two records which are estimated to be linked have the same unique
 \description{
 Check whether 2 records which are estimated to be linked have the same IDs
 }
-

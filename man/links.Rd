@@ -7,7 +7,7 @@
  Function to make a list of vectors of estimated links by "P(MPMMS)>0.5" method
 Note: The default settings return only MPMMSs with multiple members.}
 \usage{
-links(lam.gs = 10, include.singles = FALSE, show.as.multiple = FALSE)
+links(lam.gs = lam.gs, include.singles = FALSE, show.as.multiple = FALSE)
 }
 \arguments{
 \item{lam.gs}{The estimated linkage structure with a default of 10 iterations}
@@ -25,4 +25,7 @@ Function that returns the shared MPMMS
  Function to make a list of vectors of estimated links by "P(MPMMS)>0.5" method
 Note: The default settings return only MPMMSs with multiple members.
 }
-
+\examples{
+lam.gs <- matrix(c(1,1,2,2,3,3),ncol=3)
+links(lam.gs)
+}
