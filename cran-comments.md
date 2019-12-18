@@ -20,7 +20,7 @@ There were NO ERRORs or WARNINGs or NOTES.
 ## rhub check results
 There were no ERRORs or WARNINGs.
 
-## Travis-cl check on local OS X install R 3.3.1, 1.68 Mavericks build (7238)
+## Travis-cl check on local OS X install R 3.6.2, x86_64-apple-darwin15.6.0 (64-bit)
 There were no ERRORs or WARNINGs.
 
 ## Resubmission 
