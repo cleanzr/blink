@@ -4,8 +4,17 @@
 \alias{rl.gibbs}
 \title{Gibbs sampler for empirically motivated Bayesian record linkage}
 \usage{
-rl.gibbs(file.num = file.num, X.s = X.s, X.c = X.c, num.gs = num.gs,
-  a = a, b = b, c = c, d = d, M = M)
+rl.gibbs(
+  file.num = file.num,
+  X.s = X.s,
+  X.c = X.c,
+  num.gs = num.gs,
+  a = a,
+  b = b,
+  c = c,
+  d = d,
+  M = M
+)
 }
 \arguments{
 \item{file.num}{The number of the file}
