@@ -1,12 +1,12 @@
 ---
 title: "cran-comments"
 author: "Rebecca C. Steorts"
-date: "10/31/2016"
+date: "12/18/2018"
 output: html_document
 ---
 
 ## Test environments
-* local OS X install R 3.3.1, 1.68 Mavericks build (7238)
+* local OS X install R 3.6.2, x86_64-apple-darwin15.6.0 (64-bit)
 
 ## R CMD check results
 There were NO ERRORs or WARNINGs or NOTES.

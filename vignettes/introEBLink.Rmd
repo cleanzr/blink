@@ -12,14 +12,14 @@ vignette: >
 ---
 We present a small example from "Entity Resolution with Emprically Motivated Priors", Bayesian Analysis, (10),4:849-975. We will be using the RecordLinkage package in R and the RLdata500 data set. 
 
-The bLink package removes duplicate entries from multiple databases using the method outlined in the paper above. We illustrate an example of using this package using a German dataset comprised of first and last name and full date of birth.
+The blink package removes duplicate entries from multiple databases using the method outlined in the paper above. We illustrate an example of using this package using a German dataset comprised of first and last name and full date of birth.
 
 Our goals include
 
 - Presenting the RLdata500 dataset with summary information.
-- Illustrating how we can format the RLdata500 dataset to work with the bLink package
-- Examples for setting the tuning parameters for bLink
-- Running the Gibbs sampler in bLink
+- Illustrating how we can format the RLdata500 dataset to work with the blink package
+- Examples for setting the tuning parameters for blink
+- Running the Gibbs sampler in blink
 - Illustrating a few plots and sample output
 
 ## Understanding the RLdata500 dataset
@@ -38,7 +38,7 @@ head(RLdata500)
 
 ## Preparing the data
 
-Next, we prepare the data for working with the bLink package. 
+Next, we prepare the data for working with the blink package. 
 
 ```{r}
 # X.c contains the categorical variables
@@ -82,16 +82,17 @@ c <- 1
 ```
 
 ## The Gibbs Sampler for bLink
-We now run a test version of the Gibbs sampler using bLink, with 10 Gibbs iterations and a maximum size of M=500 (assuming the overall known population size is 500).
+We now run a test version of the Gibbs sampler using blink, with 10 Gibbs iterations and a maximum size of M=500 (assuming the overall known population size is 500).
 
 ```{r,results="hide"}
 #source('ebGibbsSampler.R', chdir = TRUE)
-library(bLink)
+library(knitr)
+library(blink)
 library(plyr)
 system.time(lam.gs <- rl.gibbs(file.num=file.num,X.s=X.s,X.c=X.c,num.gs=2,a=a,b=b,c=c,d=d, M=500))
 ```
 
-## Summary information of bLink
+## Summary information of blink
 
 Let's read in the estimate linkage structure using 10 Gibbs iterations.
 
@@ -105,25 +106,4 @@ mean(estPopSize)
 sd(estPopSize)
 ```
 
-Next, we illustrate an example of what we did in the paper for this dataset. 
-Show the same example, show the error rates, show the comparisons with other methods. Show convergence rates. 
-
-We have run the Gibbs sampler for X iterations as done before and now read in the output. 
-
-```{r,show="hold", fig.cap="The red line is the ground truth (450), which we find to be very close to posterior mean of 445."}
-
-temp <- unzip("../inst/extdata/sampleLinkage2.txt.zip")
-
-estLink <- as.matrix(read.table(temp,header=TRUE))
-dim(estLink)
-estPopSize <- apply(estLink , 1, function(x) {length(unique(x))})
-plot(density(estPopSize),xlim=c(300,500),main="",lty=1, "Observed Population Size", ylim= c(0,1))
-abline(v=450,col="red")
-abline(v=mean(estPopSize),col="black",lty=2)
-mean(estPopSize)
-sd(estPopSize)
-```
-
-
-
-
+In order to reproduce the results of the paper, please use a larger number of Gibbs interations.

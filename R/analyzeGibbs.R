@@ -140,7 +140,11 @@ pairwise <- function(.links){
 #' @export
 
 #' @examples
+#' id <- c(1,2,3,4,5,1,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+#' lam.gs <- matrix(c(1,1,2,2,3,3,5,6,4,3,4,5,3,2,4,1,2,3,4,2),ncol=20, nrow=4)
+#' est.links <- links(lam.gs)
 #' true.links <- links(matrix(id,nrow=1))
+#' est.links.pair <- pairwise(est.links)
 #' links.compare(est.links.pair, true.links=id)
 
 links.compare <- function(est.links.pair,true.links.pair,counts.only=TRUE){
@@ -189,6 +193,7 @@ links.compare <- function(est.links.pair,true.links.pair,counts.only=TRUE){
 #' @export
 
 #' @examples
+#' id <- c(1,2,3,4,5,1,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
 #' rec1 <- 6
 #' rec2 <- 1
 #' check_IDs(recpair=c(rec1,rec2),identity_vector=id)
