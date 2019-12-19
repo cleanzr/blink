@@ -10,3 +10,5 @@ cran-comments.md
 .Ruserdata
 *.DS_store
 LISCENSE
+doc
+Meta
