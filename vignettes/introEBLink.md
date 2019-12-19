@@ -1,11 +1,11 @@
 ---
 title: "Introduction to blink Package"
 author: "Rebecca C. Steorts"
-date: "2019-12-18"
+date: "2019-12-19"
 output: 
     rmarkdown::html_vignette:
         fig_caption: yes
-vignette: >
+vignette: 
   %\VignetteIndexEntry{Introduction to blink Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
