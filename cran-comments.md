@@ -30,4 +30,6 @@ This is a resubmission. In this version I have:
 
 * Checked that my last name is spelled correctly (this is NOT a proper warning). 
 
+* Checked that the license is in fact legit (I don't think that this is a warning). 
+
 * Taken out the vignette as it seems this is too large for CRAN.

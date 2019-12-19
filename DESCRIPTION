@@ -1,7 +1,7 @@
 Package: blink
 Type: Package
 Title: Record Linkage for Empirically Motivated Priors
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: person("Rebecca", "Steorts", email = "beka@stat.duke.edu",
   role = c("aut", "cre"))
 Depends: R (>= 3.2.4),

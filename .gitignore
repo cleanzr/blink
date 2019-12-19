@@ -1,7 +1,7 @@
 cran-comments.md
 .travis\.yml$
-.txt.gz
-.txt
+*.txt.gz
+*.txt
 .gz
 .md
 .Rproj.user
