@@ -1,7 +1,7 @@
 ---
 title: "Introduction to `blink`"
 author: "Rebecca C. Steorts"
-date: "`r Sys.Date()`"
+date: "2019-12-20"
 output: 
     rmarkdown::html_vignette:
         fig_caption: true
@@ -31,17 +31,29 @@ The RLdata500 data consists of 500 records with 10 percent duplication. Thus, th
 
 We first load the Record Linkgae package and load the RLdata500 data set. We also, provide the first few lines of the data. 
 
-```{r, echo=TRUE, message=FALSE, knitr::opts_chunk$set(cache=TRUE)}
+
+```r
 library(RecordLinkage)
 data(RLdata500)
 head(RLdata500)
+```
+
+```
+##   fname_c1 fname_c2 lname_c1 lname_c2   by bm bd
+## 1  CARSTEN     <NA>    MEIER     <NA> 1949  7 22
+## 2     GERD     <NA>    BAUER     <NA> 1968  7 27
+## 3   ROBERT     <NA> HARTMANN     <NA> 1930  4 30
+## 4   STEFAN     <NA>    WOLFF     <NA> 1957  9  2
+## 5     RALF     <NA>  KRUEGER     <NA> 1966  1 13
+## 6  JUERGEN     <NA>   FRANKE     <NA> 1929  7  4
 ```
 
 ## Preparing the data
 
 Next, we prepare the data for working with the blink package. 
 
-```{r}
+
+```r
 # X.c contains the categorical variables
 # X.s contains the string variables 
 # p.c is the number of categorical variables
@@ -58,7 +70,8 @@ p.s <- ncol(X.s)
 Now, we give a small example for setting the tuning parameters before running the Gibbs sampler.
 
 First, we work with a file number identifier.
-```{r}
+
+```r
 # File number identifier
 # Note: Recall that X.c and X.s include all files "stacked" on top of each other.
 # The vector below keeps track of which rows of X.c and X.s are in which files.
@@ -66,26 +79,30 @@ file.num <- rep(c(1,2,3),c(200,150,150))
 ```
 
 Next, we work with the parameters that tune the prior on the amount of distortion that goes into the model. 
-```{r}
+
+```r
 # Subjective choices for distortion probability prior
 a <-1
 b <- 999
 ```
 
 Then we write a function for the Edit distance between two strings. Other distance functions could be used, such as Jaro-Winkler.  
-```{r}
+
+```r
 d <- function(string1,string2){adist(string1,string2)}
 ```
 
 For the steepness parameter, we recommend
-```{r}
+
+```r
 c <- 1
 ```
 
 ## The Gibbs Sampler for bLink
 We now run a test version of the Gibbs sampler using blink, with 10 Gibbs iterations and a maximum size of M=500 (assuming the overall known population size is 500).
 
-```{r,results="hide"}
+
+```r
 library(knitr)
 library(blink)
 library(plyr)
@@ -99,7 +116,8 @@ lam.gs <- rl.gibbs(file.num=file.num,X.s=X.s,X.c=X.c,num.gs=2,a=a,b=b,c=c,d=d, M
 
 Let's read in the estimate linkage structure using 10 Gibbs iterations.
 
-```{r, fig.show="hold", fig.cap="The red line is the ground truth (450), which is not close to the estimate (500) since we only ran 10 Gibbs sampling iterations."}
+
+```r
 #estLink <- tempfile(pattern = "lam.gs")
 estLink <- lam.gs
 estPopSize <- apply(estLink , 1, function(x) {length(unique(x))})
@@ -107,7 +125,20 @@ plot(density(estPopSize),xlim=c(300,500),main="",lty=1, "Observed Population Siz
 abline(v=450,col="red")
 abline(v=mean(estPopSize),col="black",lty=2)
 mean(estPopSize)
+```
+
+```
+## [1] 500
+```
+
+```r
 sd(estPopSize)
 ```
+
+```
+## [1] 0
+```
+
+![The red line is the ground truth (450), which is not close to the estimate (500) since we only ran 10 Gibbs sampling iterations.](figure/unnamed-chunk-7-1.png)
 
 For more information, such as how to use the recall, precision, and other summary statistics, please see the paper.
