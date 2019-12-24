@@ -5,3 +5,5 @@
 ^data-raw$
 ^doc$
 ^Meta$
+^README\.md$
+^NEWS\.md$
