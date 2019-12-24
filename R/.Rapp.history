@@ -1,0 +1,7 @@
+install.packages("rhub")
+library(RAppArmor)
+install.packages("RAppArmor")
+install.packages("unixtools")
+library("unixtools")
+install.packages("unixtools")
+dir.create("/tmp/jeroen")

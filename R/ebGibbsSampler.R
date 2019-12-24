@@ -442,7 +442,12 @@ calc_q <- function(jp, X.c.ij, X.s.ij, z.s.ij, z.c.ij) {
 
 
 	timestamp <- format(Sys.time(), "%Y%m%d-%H%M%S")
+	wd <- tempdir()
 	outputfilename <- paste("lambda-",timestamp,".txt",sep="")
+	#tempfile(pattern = "file", tmpdir = tempdir(), fileext = "")
+	#tempfile(pattern = "outputfilename", tmpdir = tempdir(), fileext = ".txt")
+
+	#outputfilename <- paste("lambda-",timestamp,".txt",sep="")
 
 	for(gs.iter in 1:num.gs){
 	  print(sprintf("Gibbs sampler iteration %i", gs.iter))
@@ -458,7 +463,11 @@ calc_q <- function(jp, X.c.ij, X.s.ij, z.s.ij, z.c.ij) {
 		lambda <- draw.lambda(Y.s,Y.c,z)
 		print("     Updating lambda history")
 		lambda.out[gs.iter,] <- lambda
-		write.table(matrix(lambda,nrow=1),outputfilename,append=TRUE,
+		#write.table(matrix(lambda,nrow=1),
+		#file = file.path(wd, outputfilename, append=TRUE,
+		#row.names=FALSE,col.names=FALSE))
+		write.table(matrix(lambda,nrow=1), 
+		file = file.path(wd, outputfilename), append=TRUE,
 		row.names=FALSE,col.names=FALSE)
 		flush.console()
 	}
