@@ -1,16 +1,18 @@
 ---
-title: "Introduction to `blink`"
+title: "Introduction to blink"
 author: "Rebecca C. Steorts"
 date: "`r Sys.Date()`"
-output: 
-    rmarkdown::html_vignette:
-        fig_caption: true
+output: rmarkdown::html_vignette
 vignette: >
-%\VignetteIndexEntry{Prototyping with `blink`}
-%\VignetteEngine{knitr::rmarkdown}
-%\usepackage[utf8]{inputenc}
-
+  %\VignetteIndexEntry{Partitions}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
 We present a small example from "Entity Resolution with Emprically Motivated Priors", Bayesian Analysis, (10),4:849-975. We will be using the RecordLinkage package in R and the RLdata500 data set. 
 
 The blink package removes duplicate entries from multiple databases using the method outlined in the paper above. We illustrate an example of using this package using a German dataset comprised of first and last name and full date of birth.

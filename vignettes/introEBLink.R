@@ -1,3 +1,6 @@
+## ---- echo = FALSE------------------------------------------------------------
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+
 ## ---- echo=TRUE, message=FALSE, knitr::opts_chunk$set(cache=TRUE)-------------
 library(RecordLinkage)
 data(RLdata500)
