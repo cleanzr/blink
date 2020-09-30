@@ -27,14 +27,14 @@ Our goals include
 
 ## Understanding the RLdata500 dataset
 
-The RLdata500 dataset exists already in the RecordLinkage package in R. We review this data set for the user. 
+The RLdata500 data set exists already in the RecordLinkage package in R. We review this data set for the user. 
 
 The RLdata500 data consists of 500 records with 10 percent duplication. Thus, there are 450 unique individuals. There is full information on each record containing first name, last name, and full date of birth. 
 
 We first load the Record Linkgae package and load the RLdata500 data set. We also, provide the first few lines of the data. 
 
 ```{r, echo=TRUE, message=FALSE, knitr::opts_chunk$set(cache=TRUE)}
-library(RecordLinkage)
+library(blink)
 data(RLdata500)
 head(RLdata500)
 ```

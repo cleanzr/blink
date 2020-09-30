@@ -21,7 +21,6 @@
 #' @import utils
 #' @import plyr
 #' @import stringdist
-#' @import RecordLinkage
 #' @param file.num The number of the file
 #' @param X.s A vector of string variables
 #' @param X.c A vector of categorical variables
@@ -466,7 +465,7 @@ calc_q <- function(jp, X.c.ij, X.s.ij, z.s.ij, z.c.ij) {
 		#write.table(matrix(lambda,nrow=1),
 		#file = file.path(wd, outputfilename, append=TRUE,
 		#row.names=FALSE,col.names=FALSE))
-		write.table(matrix(lambda,nrow=1), 
+		write.table(matrix(lambda,nrow=1),
 		file = file.path(wd, outputfilename), append=TRUE,
 		row.names=FALSE,col.names=FALSE)
 		flush.console()
