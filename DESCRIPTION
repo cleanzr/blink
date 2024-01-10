@@ -18,4 +18,6 @@ VignetteBuilder: knitr
 Description: An implementation of the model in Steorts (2015) <DOI:10.1214/15-BA965SI>, which performs Bayesian entity resolution for categorical and text data, for any distance function defined by the user. In addition, the precision and recall are in the package to allow one to compare to any other comparable method such as logistic regression, Bayesian additive regression trees (BART), or random forests. The experiments are reproducible and illustrated using a simple vignette. LICENSE: GPL-3 + file license. 
 License: GPL-3
 LazyData: TRUE
+URL: https://github.com/cleanzr/blink
+BugReports: https://github.com/cleanzr/blink/issues
 RoxygenNote: 7.1.1.9000
